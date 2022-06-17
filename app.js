@@ -14,13 +14,14 @@ let direction=true;
 function draw(e){
     if(!isDrawing) return //stop drawing when mouse doesn't move
     console.log(e);
+    ctx.strokeStyle=`hsl(${hue},100%,50%)`;
     ctx.beginPath();
     ctx.moveTo(lastX,lastY)//starting..
     ctx.lineTo(e.offsetX,e.offsetY);
     ctx.stroke();
     [lastX,lastY]=[e.offsetX,e.offsetY];
     hue++;
-    if(hue>=300){
+    if(hue>=360){
         hue=0;
     }
     if(ctx.lineWidth<=1||ctx.lineWidth>=100){
